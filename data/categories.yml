@@ -1,0 +1,32 @@
+- name: "Apparel & Accessories"
+  slug: "apparel-accessories"
+  subcategories:
+    - name: "Garment & Processing Accessories"
+      slug: "garment-processing-accessories"
+      subcategories: # 4级分类（可选）
+        - name: "Buttons"
+          slug: "buttons"
+        - name: "Zippers"
+          slug: "zippers"
+        - name: "Sewing Threads"
+          slug: "sewing-threads"
+        # 可继续添加你需要的4级分类
+
+- name: "Home & Garden"
+  slug: "home-garden"
+  subcategories:
+    - name: "Home Decor"
+      slug: "home-decor"
+    - name: "Garden Supplies"
+      slug: "garden-supplies"
+
+- name: "Industrial Machinery"
+  slug: "industrial-machinery"
+  subcategories:
+    - name: "Machine Tool Equipment"
+      slug: "machine-tool-equipment"
+      subcategories:
+        - name: "CNC Lathe"
+          slug: "cnc-lathe"
+        - name: "Drilling Machines"
+          slug: "drilling-machines"

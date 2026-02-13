@@ -1,0 +1,25 @@
+- name: "Metal Garment Buttons"
+  slug: "metal-garment-buttons"
+  category: "apparel-accessories/garment-processing-accessories/buttons" # 对应分类slug
+  price: "$0.10 - $0.50/pc"
+  moq: "1000 pcs"
+  description: "High-quality metal garment buttons for jeans, jackets, and apparel. Durable, rust-resistant, customizable logo."
+  features: # 产品卖点
+    - "Material: Brass/Stainless Steel"
+    - "Size: 10mm - 30mm"
+    - "Custom logo available"
+  image: "/assets/images/products/buttons-01.jpg" # 图片路径
+  keywords: "metal garment buttons, jeans buttons, apparel buttons, custom metal buttons" # SEO关键词
+
+- name: "Nylon Zippers"
+  slug: "nylon-zippers"
+  category: "apparel-accessories/garment-processing-accessories/zippers"
+  price: "$0.20 - $1.00/pc"
+  moq: "500 pcs"
+  description: "Smooth nylon zippers for garments, bags, and home textiles. Available in multiple colors and lengths."
+  features:
+    - "Material: Nylon tape + metal teeth"
+    - "Length: 10cm - 100cm"
+    - "Color: Black/White/Red/Blue"
+  image: "/assets/images/products/zippers-01.jpg"
+  keywords: "nylon zippers, garment zippers, apparel zippers, custom length zippers"
