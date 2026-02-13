@@ -1,0 +1,139 @@
+/* 全局重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 导航栏 */
+.navbar {
+  background: #03a9f4;
+  padding: 1rem 0;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+}
+
+.nav-item {
+  margin-left: 2rem;
+}
+
+.nav-item a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-item a:hover {
+  text-decoration: underline;
+}
+
+/* 分类树 */
+.categories {
+  padding: 3rem 0;
+}
+
+.category-title, .subcategory-title {
+  cursor: pointer;
+  padding: 0.8rem 1rem;
+  background: #f0f0f0;
+  margin-top: 0.5rem;
+  border-radius: 4px;
+}
+
+.subcategory-level-1, .subcategory-level-2 {
+  display: none;
+  margin-left: 2rem;
+  margin-top: 0.5rem;
+}
+
+.subcategory-level-1.active, .subcategory-level-2.active {
+  display: block;
+}
+
+.subcategory-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #03a9f4;
+  text-decoration: none;
+}
+
+/* 产品卡片 */
+.featured-products {
+  padding: 3rem 0;
+  background: #f9f9f9;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.product-card {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.product-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.product-name {
+  padding: 1rem;
+  font-size: 1.1rem;
+}
+
+.product-price {
+  padding: 0 1rem;
+  color: #e63946;
+  font-weight: bold;
+}
+
+.product-link {
+  display: block;
+  margin: 1rem;
+  padding: 0.8rem;
+  background: #03a9f4;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .nav-menu {
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+  .nav-item {
+    margin: 0.5rem 0;
+  }
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
