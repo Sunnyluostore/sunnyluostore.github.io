@@ -1,0 +1,28 @@
+your-company-site/          # 你的GitHub仓库名
+├── _config.yml              # Jekyll核心配置（域名、SEO、导航等）
+├── _data/                   # 数据文件夹（核心：产品/分类数据，类似表格）
+│   ├── categories.yml       # 产品分级分类数据（1级→2级→3级/4级）
+│   └── products.yml         # 产品列表数据（表格形式，可批量添加）
+├── _layouts/                # 页面布局模板（复用头部/底部/SEO）
+│   ├── default.html         # 基础布局（所有页面共用）
+│   ├── category.html        # 分类页布局
+│   ├── product.html         # 产品详情页布局
+│   └── post.html            # 博客文章布局
+├── _posts/                  # 博客文章（Markdown格式，添加即生效）
+│   └── 2026-02-14-how-to-choose-garment-buttons.md  # 示例博客
+├── assets/                  # 静态资源（CSS/JS/图片）
+│   ├── css/
+│   │   └── style.css        # 自定义样式（响应式、分类展开）
+│   ├── js/
+│   │   └── main.js          # 交互JS（分类展开、面包屑生成）
+│   └── images/              # 产品图片/Logo/资质图
+│       ├── logo.png         # 替换成你的公司Logo
+│       └── products/        # 产品图片文件夹（按分类存放）
+│           └── buttons-01.jpg
+├── index.html               # 首页（展示核心分类、品牌优势）
+├── about.md                 # 关于我们页（Markdown编写）
+├── contact.md               # 联系我们页（带表单，对接第三方工具）
+├── blog.html                # 博客列表页（自动加载_posts下的文章）
+├── 404.html                 # 404页面（SEO友好）
+├── sitemap.xml              # 谷歌站点地图（自动生成所有页面）
+└── robots.txt               # 爬虫规则（引导谷歌抓取核心页面）

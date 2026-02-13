@@ -1,0 +1,30 @@
+# 站点基础信息
+title: "Your Company - Garment Accessories & Industrial Machinery Supplier"
+description: "High-quality garment accessories, industrial machinery, and more. Factory-direct prices, reliable supplier with 10+ years experience."
+url: "https://your-domain.com" # 替换成你的自定义域名（或github.io地址）
+baseurl: "" # 若仓库是二级路径填"/仓库名"，否则留空
+lang: "en"
+permalink: /:categories/:title/ # URL结构（SEO友好）
+
+# Jekyll配置
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-sitemap # 自动生成sitemap.xml（GitHub Pages支持）
+  - jekyll-seo-tag # 自动优化SEO标签
+
+# 导航菜单（对应首页/分类/博客/关于/联系）
+nav:
+  - name: "Home"
+    link: "/"
+  - name: "Products"
+    link: "/#product-categories"
+  - name: "Blog"
+    link: "/blog.html"
+  - name: "About Us"
+    link: "/about.md"
+  - name: "Contact Us"
+    link: "/contact.md"
+
+# 谷歌分析（替换成你的ID）
+google_analytics: "G-9L8EDEXZBV"

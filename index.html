@@ -1,0 +1,60 @@
+---
+layout: default
+title: "Home - Your Company | Garment Accessories & Industrial Machinery Supplier"
+description: "Factory-direct supplier of garment accessories, industrial machinery, home & garden products. High-quality, competitive prices, reliable delivery."
+---
+
+<!-- 头部Banner -->
+<section class="hero">
+  <div class="container">
+    <h1>Your Company - Professional Product Supplier</h1>
+    <p>Factory-direct prices | 10+ Years Experience | Custom Solutions</p>
+  </div>
+</section>
+
+<!-- 产品分类区域 -->
+<section id="product-categories" class="categories">
+  <div class="container">
+    <h2>Product Categories</h2>
+    <div class="category-tree">
+      {% for main_cat in site.data.categories %}
+        <div class="category-item">
+          <h3 class="category-title" onclick="toggleSubcategory(this)">{{ main_cat.name }}</h3>
+          {% if main_cat.subcategories %}
+            <div class="subcategory-level-1">
+              {% for sub1 in main_cat.subcategories %}
+                <div class="subcategory-item">
+                  <h4 class="subcategory-title" onclick="toggleSubcategory(this)">{{ sub1.name }}</h4>
+                  {% if sub1.subcategories %}
+                    <div class="subcategory-level-2">
+                      {% for sub2 in sub1.subcategories %}
+                        <a href="/category/{{ sub2.slug }}.html" class="subcategory-link">{{ sub2.name }}</a>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- 热销产品区域 -->
+<section class="featured-products">
+  <div class="container">
+    <h2>Featured Products</h2>
+    <div class="product-grid">
+      {% for product in site.data.products limit:6 %}
+        <div class="product-card">
+          <img src="{{ product.image }}" alt="{{ product.name }}" class="product-img">
+          <h3 class="product-name">{{ product.name }}</h3>
+          <p class="product-price">{{ product.price }}</p>
+          <a href="/products/{{ product.slug }}.html" class="product-link">View Details</a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
