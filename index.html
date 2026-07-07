@@ -2,114 +2,260 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Sunnyluostore | 站点导航</title>
-    <meta name="description" content="Sunnyluostore旗下全部子站点导航，外贸资源、商品检索、零食食谱一站式入口">
-    <meta name="keywords" content="外贸教程,商品查找,零食食谱,Sunnyluostore,GitHub Pages">
+    <meta name="description" content="Sunnyluostore旗下全部子站点导航，外贸博客、外贸资源、商品检索、零食食谱一站式入口，支持全球多语言翻译">
+    <meta name="keywords" content="外贸博客,外贸教程,商品查找,零食食谱,Sunnyluostore,GitHub Pages,多语言翻译">
+    <!-- 预加载关键域名，提升跳转速度 -->
+    <link rel="preconnect" href="https://sunnyluostore.github.io">
+    <link rel="dns-prefetch" href="https://sunnyluostore.github.io">
     <style>
+        /* 重置样式精简 */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: system-ui, -apple-system, sans-serif;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
         }
         :root {
-            --sky-blue: #60b8f8;
-            --light-sky: #e8f4fd;
-            --dark-sky: #2b93e2;
-            --text-main: #222;
-            --text-gray: #666;
-            --border-color: #ddecf9;
+            --primary: #2563eb;
+            --primary-light: #3b82f6;
+            --primary-bg: #eff6ff;
+            --text-dark: #1e293b;
+            --text-gray: #64748b;
+            --text-light: #94a3b8;
+            --border: #cbd5e1;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(37, 99, 235, 0.12);
         }
         body {
-            background-color: var(--light-sky);
-            color: var(--text-main);
-            padding: 60px 16px;
-            line-height: 1.65;
+            background-color: var(--primary-bg);
+            color: var(--text-dark);
+            line-height: 1.7;
         }
-        .wrap {
-            max-width: 1060px;
+        /* 导航栏优化：减少嵌套层级，简化样式 */
+        .navbar {
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+        .nav-wrap {
+            max-width: 1100px;
             margin: 0 auto;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .nav-logo {
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+        .nav-menu {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px 18px;
+        }
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.96rem;
+            font-weight: 500;
+            padding: 6px 0;
+            position: relative;
+            transition: color 0.25s ease;
+        }
+        .nav-menu a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.25s ease;
+        }
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        /* 搜索框优化：简化过渡效果 */
+        .search-input {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 8px 14px;
+            width: 230px;
+            font-size: 0.9rem;
+            outline: none;
+            background: #f8fafc;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .search-input:focus {
+            border-color: var(--primary-light);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+        #translate-element {
+            min-width: 135px;
+        }
+        /* 主体容器：简化 padding 计算 */
+        .wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px;
         }
         header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 52px;
         }
         h1 {
-            font-size: 2.2rem;
-            color: var(--dark-sky);
-            font-weight: 500;
-            margin-bottom: 10px;
+            font-size: 2.3rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: 0.3px;
         }
         .desc-top {
             color: var(--text-gray);
-            font-size: 1rem;
+            font-size: 1.02rem;
         }
-        /* 站点卡片网格 */
+        /* 卡片网格优化：使用更高效的网格布局，减少重排 */
         .site-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 26px;
+            contain: layout paint; /* 提升渲染性能 */
         }
         .site-card {
             background: #fff;
-            padding: 28px;
-            border-radius: 14px;
-            border: 1px solid var(--border-color);
-            transition: 0.24s ease;
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            transition: all 0.28s ease;
+            contain: layout paint; /* 隔离渲染 */
         }
         .site-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--sky-blue);
-            box-shadow: 0 6px 18px rgba(96, 184, 248, 0.15);
+            transform: translateY(-5px);
+            border-color: var(--primary-light);
+            box-shadow: var(--shadow-md);
         }
         .site-card h2 {
-            font-size: 1.3rem;
-            font-weight: 500;
-            color: var(--dark-sky);
-            margin-bottom: 10px;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 12px;
         }
         .site-link-text {
-            font-family: monospace;
-            font-size: 0.85rem;
-            color: var(--sky-blue);
+            font-family: 'Consolas', monospace;
+            font-size: 0.84rem;
+            color: var(--primary-light);
             word-break: break-all;
-            margin-bottom: 14px;
+            margin-bottom: 16px;
         }
         .site-intro {
-            font-size: 0.95rem;
+            font-size: 0.96rem;
             color: var(--text-gray);
-            margin-bottom: 22px;
+            margin-bottom: 24px;
         }
         .enter-btn {
             display: inline-block;
-            padding: 9px 22px;
-            background: var(--sky-blue);
+            padding: 10px 24px;
+            background: var(--primary-light);
             color: #fff;
             text-decoration: none;
-            border-radius: 10px;
-            font-size: 0.95rem;
-            transition: background 0.2s;
+            border-radius: 12px;
+            font-size: 0.96rem;
+            font-weight: 500;
+            transition: background 0.24s ease;
         }
         .enter-btn:hover {
-            background: var(--dark-sky);
+            background: var(--primary);
         }
         footer {
             text-align: center;
-            margin-top: 70px;
+            margin-top: 75px;
             font-size: 0.88rem;
-            color: #88a8c5;
+            color: var(--text-light);
+        }
+        /* 媒体查询精简：合并重复逻辑 */
+        @media (max-width: 768px) {
+            .nav-wrap {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .search-input {
+                width: 100%;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .wrap {
+                padding: 40px 16px;
+            }
+            .site-card {
+                padding: 24px;
+            }
+        }
+        @media (max-width: 480px) {
+            .nav-menu {
+                gap: 12px;
+            }
+            .nav-logo {
+                font-size: 1.3rem;
+            }
+            .site-list {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- 顶部导航栏 -->
+    <div class="navbar">
+        <div class="nav-wrap">
+            <a href="/" class="nav-logo">Sunnyluostore</a>
+            <div class="nav-menu">
+                <a href="/blog/index.html">外贸博客</a>
+                <a href="/waimao/index.html">外贸资源站</a>
+                <a href="/allgoodsfind.github.io/index.html">商品搜索库</a>
+                <a href="/snack-recipes.github.io/index.html">小吃配方</a>
+            </div>
+            <div class="nav-right">
+                <input class="search-input" placeholder="搜索站点名称/关键词..." oninput="searchSite()">
+                <div id="translate-element"></div>
+            </div>
+        </div>
+    </div>
+
     <div class="wrap">
         <header>
             <h1>Sunnyluostore 站点导航</h1>
             <p class="desc-top">汇总全部功能子网站，快速直达对应平台</p>
         </header>
-
         <div class="site-list">
+            <!-- 外贸博客 -->
+            <div class="site-card">
+                <h2>外贸博客 Blog</h2>
+                <div class="site-link-text">https://sunnyluostore.github.io/blog/</div>
+                <p class="site-intro">垂直外贸干货专栏，持续更新询盘处理、电话谈单、客户跟进、邮件营销全套实操内容，收录海量长尾干货，获取免费外贸运营技巧。</p>
+                <a class="enter-btn" href="https://sunnyluostore.github.io/blog/" target="_blank">进入博客</a>
+            </div>
             <!-- 商品搜索库 -->
             <div class="site-card">
                 <h2>商品搜索库 allgoodsfind</h2>
@@ -117,27 +263,60 @@
                 <p class="site-intro">全球货源与商品检索平台，外贸选品、供应商资料查询工具。</p>
                 <a class="enter-btn" href="https://sunnyluostore.github.io/allgoodsfind.github.io/" target="_blank">进入站点</a>
             </div>
-
-            <!-- 零食食谱站 -->
+            <!-- 小吃配方站 -->
             <div class="site-card">
-                <h2>零食食谱 snack-recipes</h2>
+                <h2>小吃配方 snack-recipes</h2>
                 <div class="site-link-text">https://sunnyluostore.github.io/snack-recipes.github.io/</div>
-                <p class="site-intro">海内外小吃配方、食品教程，适合美食与食品外贸从业者查阅。</p>
+                <p class="site-intro">商用摆摊小吃、糖水卤味、烘焙全套配方教程，适合副业开店参考。</p>
                 <a class="enter-btn" href="https://sunnyluostore.github.io/snack-recipes.github.io/" target="_blank">进入站点</a>
             </div>
-
-            <!-- 外贸资源站 -->
+            <!-- 外贸综合资源站 -->
             <div class="site-card">
-                <h2>外贸综合站 waimao</h2>
+                <h2>外贸综合资源站 waimao</h2>
                 <div class="site-link-text">https://sunnyluostore.github.io/waimao/</div>
-                <p class="site-intro">全套外贸实操资料：客户开发、社媒营销、SOHO创业、新人培训文档合集。</p>
-                <a class="enter-btn" href="https://sunnyluostore.github.io/waimao/" target="_blank">进入站点</a>
+                <p class="site-intro">全套外贸落地资源：开发话术、跟进模板、社媒拓客、SOHO创业完整资料包，博客干货配套资源合集。</p>
+                <a class="enter-btn" href="https://sunnyluostore.github.io/waimao/" target="_blank">进入资源站</a>
             </div>
         </div>
-
         <footer>
             © 2026 Sunnyluostore | All sites powered by GitHub Pages
         </footer>
     </div>
+
+    <!-- 延迟加载谷歌翻译脚本（核心优化：非首屏资源延后加载） -->
+    <script>
+        // 优化搜索逻辑：减少 DOM 查询次数，缓存节点
+        const searchInput = document.querySelector('.search-input');
+        const siteCards = Array.from(document.querySelectorAll('.site-card'));
+        // 缓存卡片文本，避免重复计算
+        const cardTextMap = new Map();
+        siteCards.forEach(card => {
+            cardTextMap.set(card, card.innerText.toLowerCase());
+        });
+
+        function searchSite() {
+            const keyword = searchInput.value.toLowerCase().trim();
+            // 批量操作 DOM，减少重排
+            siteCards.forEach(card => {
+                card.style.display = cardTextMap.get(card).includes(keyword) ? 'block' : 'none';
+            });
+        }
+
+        // 页面加载完成后再加载谷歌翻译（不阻塞首屏）
+        window.addEventListener('load', () => {
+            const script = document.createElement('script');
+            script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+            script.async = true; // 异步加载
+            document.body.appendChild(script);
+
+            window.googleTranslateElementInit = function() {
+                new google.translate.TranslateElement({
+                    pageLanguage: 'zh-CN',
+                    includedLanguages: 'en,ja,ko,de,fr,es,ru,pt,it,ar,vi',
+                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                }, 'translate-element');
+            };
+        });
+    </script>
 </body>
 </html>
