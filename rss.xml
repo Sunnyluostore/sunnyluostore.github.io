@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <!-- 网站基础信息 -->
+  <title>SunnyluoStore 外贸工具导航</title>
+  <link>https://sunnyluostore.github.io</link>
+  <description>一站式外贸SOHO资源站，整合全球货源检索、海外小吃配方、客户开发、社媒营销全套免费工具与资料</description>
+  <language>zh-CN</language>
+  <copyright>Copyright 2026 SunnyluoStore</copyright>
+  <atom:link href="https://sunnyluostore.github.io/rss.xml" rel="self" type="application/rss+xml"/>
+  
+  <!-- 第一条更新条目，你可以复制多个item扩充 -->
+  <item>
+    <title>全球货源检索工具 AllGoodsFind 上线</title>
+    <link>https://sunnyluostore.github.io/allgoodsfind</link>
+    <description>免费全球供应商货源查询渠道，适合跨境选品、外贸批发找货，覆盖多国家供应链渠道</description>
+    <pubDate>Tue, 07 Jul 2026 10:00:00 GMT</pubDate>
+    <guid>https://sunnyluostore.github.io/allgoodsfind</guid>
+  </item>
+
+  <item>
+    <title>海外小吃零食配方库 Snack Recipes</title>
+    <link>https://sunnyluostore.github.io/snack-recipes</link>
+    <description>各国特色零食、加工配方资料，食品出口外贸从业者专用参考资源，全部在线免费查阅</description>
+    <pubDate>Tue, 07 Jul 2026 10:10:00 GMT</pubDate>
+    <guid>https://sunnyluostore.github.io/snack-recipes</guid>
+  </item>
+
+  <item>
+    <title>外贸SOHO客户开发全套资料专区</title>
+    <link>https://sunnyluostore.github.io/waimao</link>
+    <description>外贸开发信模板、社媒获客、海外客户挖掘实操教程，独立站卖家必备资源合集</description>
+    <pubDate>Tue, 07 Jul 2026 10:20:00 GMT</pubDate>
+    <guid>https://sunnyluostore.github.io/waimao</guid>
+  </item>
+</channel>
+</rss>
